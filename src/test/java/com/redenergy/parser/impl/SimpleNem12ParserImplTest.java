@@ -202,7 +202,7 @@ public class SimpleNem12ParserImplTest {
 	}
 
 	@Test
-	public void testInvalidFile20() throws URISyntaxException, InvalidContentException, IOException {
+	public void testValidFile20() throws URISyntaxException, InvalidContentException, IOException {
 		
 		File file = new File(this.getClass().getClassLoader().getResource("just_meter_read_block.csv").toURI());
 
@@ -214,7 +214,7 @@ public class SimpleNem12ParserImplTest {
 	}
 
 	@Test
-	public void testInvalidFile21() throws URISyntaxException, InvalidContentException, IOException {
+	public void testValidFile21() throws URISyntaxException, InvalidContentException, IOException {
 		
 		File file = new File(this.getClass().getClassLoader().getResource("SimpleNem12_original.csv").toURI());
 
@@ -233,7 +233,7 @@ public class SimpleNem12ParserImplTest {
 	}
 
 	@Test
-	public void testInvalidFile22() throws URISyntaxException, InvalidContentException, IOException {
+	public void testValidFile22() throws URISyntaxException, InvalidContentException, IOException {
 		
 		File file = new File(this.getClass().getClassLoader().getResource("SimpleNem12_modified.csv").toURI());
 
@@ -252,7 +252,7 @@ public class SimpleNem12ParserImplTest {
 	}
 
 	@Test
-	public void testInvalidFile23() throws URISyntaxException, InvalidContentException, IOException {
+	public void testValidFile23() throws URISyntaxException, InvalidContentException, IOException {
 		
 		File file = new File(this.getClass().getClassLoader().getResource("SimpleNem12_double_test.csv").toURI());
 
@@ -274,6 +274,33 @@ public class SimpleNem12ParserImplTest {
 	public void testInvalidFile24() throws URISyntaxException, InvalidContentException, IOException {
 		
 		File file = new File(this.getClass().getClassLoader().getResource("SimpleNem12_duplicate_date.csv").toURI());
+
+		test.parseSimpleNem12(file);
+		
+	}
+
+	@Test(expected = InvalidContentException.class)
+	public void testInvalidFile25() throws URISyntaxException, InvalidContentException, IOException {
+		
+		File file = new File(this.getClass().getClassLoader().getResource("SimpleNem12_empty_lines.csv").toURI());
+
+		test.parseSimpleNem12(file);
+		
+	}
+
+	@Test(expected = InvalidContentException.class)
+	public void testInvalidFile26() throws URISyntaxException, InvalidContentException, IOException {
+		
+		File file = new File(this.getClass().getClassLoader().getResource("SimpleNem12_orphan_records.csv").toURI());
+
+		test.parseSimpleNem12(file);
+		
+	}
+
+	@Test(expected = InvalidContentException.class)
+	public void testInvalidFile27() throws URISyntaxException, InvalidContentException, IOException {
+		
+		File file = new File(this.getClass().getClassLoader().getResource("SimpleNem12_less_data.csv").toURI());
 
 		test.parseSimpleNem12(file);
 		
