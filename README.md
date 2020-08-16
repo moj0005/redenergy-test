@@ -3,6 +3,7 @@
 ### Prerequisite Environment
 * Should have java version 1.8.0_211
 * Should have apache maven version 3.6.1
+* This project is maven based project independent of any IDE
 
 ### How to Build
 * Checkout redenergy-test locally
