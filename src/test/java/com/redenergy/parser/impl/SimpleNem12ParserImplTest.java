@@ -305,4 +305,13 @@ public class SimpleNem12ParserImplTest {
 		test.parseSimpleNem12(file);
 		
 	}
+
+	@Test(expected = InvalidContentException.class)
+	public void testInvalidFile28() throws URISyntaxException, InvalidContentException, IOException {
+		
+		File file = new File(this.getClass().getClassLoader().getResource("SimpleNem12_garbage_data_MRB.csv").toURI());
+
+		test.parseSimpleNem12(file);
+		
+	}
 }

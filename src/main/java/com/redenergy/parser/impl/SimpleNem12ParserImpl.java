@@ -95,6 +95,10 @@ public class SimpleNem12ParserImpl implements SimpleNem12Parser {
 	
 	private boolean validateMeterReadBlockRecord(String [] meterReadBlockRecord) throws InvalidContentException {
 
+		if (meterReadBlockRecord.length != 3) {
+			throw new InvalidContentException("Not a valid meter read block record: " + Arrays.asList(meterReadBlockRecord));
+		}
+		
 		if (!meterReadBlockRecord[1].matches("\\d{10}")) {
 			throw new InvalidContentException("Not a valid meter read block record: " + Arrays.asList(meterReadBlockRecord));
 		}
